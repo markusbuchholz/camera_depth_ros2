@@ -12,7 +12,7 @@ It is important to follow instruction and upload the model to ```checkpoints``` 
 Upload the checkpoints from [here](https://drive.google.com/drive/folders/1vvFFm5wGWGHFtZthLAUwNdOGPQBPVdiF?usp=sharing) <br>
 
 
-Note. <br>
+## Note. <br>
 
 Run first camera test.
 
