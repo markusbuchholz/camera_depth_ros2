@@ -1,0 +1,48 @@
+running egg_info
+creating ../../build/dev_opencv_py/dev_opencv_py.egg-info
+writing ../../build/dev_opencv_py/dev_opencv_py.egg-info/PKG-INFO
+writing dependency_links to ../../build/dev_opencv_py/dev_opencv_py.egg-info/dependency_links.txt
+writing entry points to ../../build/dev_opencv_py/dev_opencv_py.egg-info/entry_points.txt
+writing requirements to ../../build/dev_opencv_py/dev_opencv_py.egg-info/requires.txt
+writing top-level names to ../../build/dev_opencv_py/dev_opencv_py.egg-info/top_level.txt
+writing manifest file '../../build/dev_opencv_py/dev_opencv_py.egg-info/SOURCES.txt'
+reading manifest file '../../build/dev_opencv_py/dev_opencv_py.egg-info/SOURCES.txt'
+writing manifest file '../../build/dev_opencv_py/dev_opencv_py.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/devuser/cam_ws/build/dev_opencv_py/build
+creating /home/devuser/cam_ws/build/dev_opencv_py/build/lib
+creating /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py
+copying dev_opencv_py/blue_detect.py -> /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py
+copying dev_opencv_py/aruco.py -> /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py
+copying dev_opencv_py/cam_pub.py -> /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py
+copying dev_opencv_py/cam_sub.py -> /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py
+copying dev_opencv_py/__init__.py -> /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py
+copying dev_opencv_py/somethin.py -> /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py
+running install
+running install_lib
+creating /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py
+copying /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py/blue_detect.py -> /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py
+copying /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py/aruco.py -> /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py
+copying /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py/cam_pub.py -> /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py
+copying /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py/cam_sub.py -> /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py
+copying /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py/__init__.py -> /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py
+copying /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py/somethin.py -> /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py
+byte-compiling /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py/blue_detect.py to blue_detect.cpython-310.pyc
+byte-compiling /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py/aruco.py to aruco.cpython-310.pyc
+byte-compiling /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py/cam_pub.py to cam_pub.cpython-310.pyc
+byte-compiling /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py/cam_sub.py to cam_sub.cpython-310.pyc
+byte-compiling /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py/somethin.py to somethin.cpython-310.pyc
+running install_data
+creating /home/devuser/cam_ws/install/dev_opencv_py/share/ament_index
+creating /home/devuser/cam_ws/install/dev_opencv_py/share/ament_index/resource_index
+creating /home/devuser/cam_ws/install/dev_opencv_py/share/ament_index/resource_index/packages
+copying resource/dev_opencv_py -> /home/devuser/cam_ws/install/dev_opencv_py/share/ament_index/resource_index/packages
+copying package.xml -> /home/devuser/cam_ws/install/dev_opencv_py/share/dev_opencv_py
+running install_egg_info
+Copying ../../build/dev_opencv_py/dev_opencv_py.egg-info to /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py-0.0.0-py3.10.egg-info
+running install_scripts
+Installing cam_pub script to /home/devuser/cam_ws/install/dev_opencv_py/lib/dev_opencv_py
+Installing cam_sub script to /home/devuser/cam_ws/install/dev_opencv_py/lib/dev_opencv_py
+writing list of installed files to '/home/devuser/cam_ws/build/dev_opencv_py/install.log'

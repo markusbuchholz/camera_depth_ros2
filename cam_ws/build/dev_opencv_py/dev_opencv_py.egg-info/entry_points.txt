@@ -1,0 +1,4 @@
+[console_scripts]
+cam_pub = dev_opencv_py.cam_pub:main
+cam_sub = dev_opencv_py.cam_sub:main
+

@@ -1,0 +1,58 @@
+[0.000000] (-) TimerEvent: {}
+[0.000309] (dev_opencv_py) JobQueued: {'identifier': 'dev_opencv_py', 'dependencies': OrderedDict()}
+[0.000353] (dev_opencv_py) JobStarted: {'identifier': 'dev_opencv_py'}
+[0.099952] (-) TimerEvent: {}
+[0.200132] (-) TimerEvent: {}
+[0.228985] (dev_opencv_py) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/dev_opencv_py', 'build', '--build-base', '/home/devuser/cam_ws/build/dev_opencv_py/build', 'install', '--record', '/home/devuser/cam_ws/build/dev_opencv_py/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/devuser/cam_ws/src/dev_opencv_py', 'env': {'HOSTNAME': 'markus', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/devuser', 'OLDPWD': '/home/devuser/cam_ws/src', 'PYTHONUNBUFFERED': '1', 'ROS_PYTHON_VERSION': '3', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'NVIDIA_DRIVER_CAPABILITIES': 'all', 'TERM': 'xterm', 'ROS_LOCALHOST_ONLY': '0', 'QT_X11_NO_MITSHM': '1', 'PATH': '/opt/ros/humble/bin:/home/devuser/env/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': ':1', 'LANG': 'C.UTF-8', 'XAUTHORITY': '/tmp/.docker.xauth', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'DEBIAN_FRONTEND': 'noninteractive', 'PWD': '/home/devuser/cam_ws/build/dev_opencv_py', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/home/devuser/cam_ws/build/dev_opencv_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'NVIDIA_VISIBLE_DEVICES': 'all', 'COLCON': '1'}, 'shell': False}
+[0.300197] (-) TimerEvent: {}
+[0.311846] (dev_opencv_py) StdoutLine: {'line': b'running egg_info\n'}
+[0.312094] (dev_opencv_py) StdoutLine: {'line': b'creating ../../build/dev_opencv_py/dev_opencv_py.egg-info\n'}
+[0.312202] (dev_opencv_py) StdoutLine: {'line': b'writing ../../build/dev_opencv_py/dev_opencv_py.egg-info/PKG-INFO\n'}
+[0.312246] (dev_opencv_py) StdoutLine: {'line': b'writing dependency_links to ../../build/dev_opencv_py/dev_opencv_py.egg-info/dependency_links.txt\n'}
+[0.312327] (dev_opencv_py) StdoutLine: {'line': b'writing entry points to ../../build/dev_opencv_py/dev_opencv_py.egg-info/entry_points.txt\n'}
+[0.312350] (dev_opencv_py) StdoutLine: {'line': b'writing requirements to ../../build/dev_opencv_py/dev_opencv_py.egg-info/requires.txt\n'}
+[0.312374] (dev_opencv_py) StdoutLine: {'line': b'writing top-level names to ../../build/dev_opencv_py/dev_opencv_py.egg-info/top_level.txt\n'}
+[0.312412] (dev_opencv_py) StdoutLine: {'line': b"writing manifest file '../../build/dev_opencv_py/dev_opencv_py.egg-info/SOURCES.txt'\n"}
+[0.312952] (dev_opencv_py) StdoutLine: {'line': b"reading manifest file '../../build/dev_opencv_py/dev_opencv_py.egg-info/SOURCES.txt'\n"}
+[0.313212] (dev_opencv_py) StdoutLine: {'line': b"writing manifest file '../../build/dev_opencv_py/dev_opencv_py.egg-info/SOURCES.txt'\n"}
+[0.313306] (dev_opencv_py) StdoutLine: {'line': b'running build\n'}
+[0.313329] (dev_opencv_py) StdoutLine: {'line': b'running build_py\n'}
+[0.313359] (dev_opencv_py) StdoutLine: {'line': b'creating /home/devuser/cam_ws/build/dev_opencv_py/build\n'}
+[0.313378] (dev_opencv_py) StdoutLine: {'line': b'creating /home/devuser/cam_ws/build/dev_opencv_py/build/lib\n'}
+[0.313397] (dev_opencv_py) StdoutLine: {'line': b'creating /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py\n'}
+[0.313432] (dev_opencv_py) StdoutLine: {'line': b'copying dev_opencv_py/blue_detect.py -> /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py\n'}
+[0.313455] (dev_opencv_py) StdoutLine: {'line': b'copying dev_opencv_py/aruco.py -> /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py\n'}
+[0.313489] (dev_opencv_py) StdoutLine: {'line': b'copying dev_opencv_py/cam_pub.py -> /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py\n'}
+[0.313526] (dev_opencv_py) StdoutLine: {'line': b'copying dev_opencv_py/cam_sub.py -> /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py\n'}
+[0.313546] (dev_opencv_py) StdoutLine: {'line': b'copying dev_opencv_py/__init__.py -> /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py\n'}
+[0.313565] (dev_opencv_py) StdoutLine: {'line': b'copying dev_opencv_py/somethin.py -> /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py\n'}
+[0.313598] (dev_opencv_py) StdoutLine: {'line': b'running install\n'}
+[0.313742] (dev_opencv_py) StdoutLine: {'line': b'running install_lib\n'}
+[0.314030] (dev_opencv_py) StdoutLine: {'line': b'creating /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py\n'}
+[0.314049] (dev_opencv_py) StdoutLine: {'line': b'copying /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py/blue_detect.py -> /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py\n'}
+[0.314091] (dev_opencv_py) StdoutLine: {'line': b'copying /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py/aruco.py -> /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py\n'}
+[0.314110] (dev_opencv_py) StdoutLine: {'line': b'copying /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py/cam_pub.py -> /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py\n'}
+[0.314168] (dev_opencv_py) StdoutLine: {'line': b'copying /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py/cam_sub.py -> /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py\n'}
+[0.314187] (dev_opencv_py) StdoutLine: {'line': b'copying /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py/__init__.py -> /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py\n'}
+[0.314205] (dev_opencv_py) StdoutLine: {'line': b'copying /home/devuser/cam_ws/build/dev_opencv_py/build/lib/dev_opencv_py/somethin.py -> /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py\n'}
+[0.314352] (dev_opencv_py) StdoutLine: {'line': b'byte-compiling /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py/blue_detect.py to blue_detect.cpython-310.pyc\n'}
+[0.314614] (dev_opencv_py) StdoutLine: {'line': b'byte-compiling /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py/aruco.py to aruco.cpython-310.pyc\n'}
+[0.314720] (dev_opencv_py) StdoutLine: {'line': b'byte-compiling /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py/cam_pub.py to cam_pub.cpython-310.pyc\n'}
+[0.314871] (dev_opencv_py) StdoutLine: {'line': b'byte-compiling /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py/cam_sub.py to cam_sub.cpython-310.pyc\n'}
+[0.315006] (dev_opencv_py) StdoutLine: {'line': b'byte-compiling /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py/__init__.py to __init__.cpython-310.pyc\n'}
+[0.315049] (dev_opencv_py) StdoutLine: {'line': b'byte-compiling /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py/somethin.py to somethin.cpython-310.pyc\n'}
+[0.315198] (dev_opencv_py) StdoutLine: {'line': b'running install_data\n'}
+[0.315238] (dev_opencv_py) StdoutLine: {'line': b'creating /home/devuser/cam_ws/install/dev_opencv_py/share/ament_index\n'}
+[0.315273] (dev_opencv_py) StdoutLine: {'line': b'creating /home/devuser/cam_ws/install/dev_opencv_py/share/ament_index/resource_index\n'}
+[0.315307] (dev_opencv_py) StdoutLine: {'line': b'creating /home/devuser/cam_ws/install/dev_opencv_py/share/ament_index/resource_index/packages\n'}
+[0.315347] (dev_opencv_py) StdoutLine: {'line': b'copying resource/dev_opencv_py -> /home/devuser/cam_ws/install/dev_opencv_py/share/ament_index/resource_index/packages\n'}
+[0.315366] (dev_opencv_py) StdoutLine: {'line': b'copying package.xml -> /home/devuser/cam_ws/install/dev_opencv_py/share/dev_opencv_py\n'}
+[0.315384] (dev_opencv_py) StdoutLine: {'line': b'running install_egg_info\n'}
+[0.316111] (dev_opencv_py) StdoutLine: {'line': b'Copying ../../build/dev_opencv_py/dev_opencv_py.egg-info to /home/devuser/cam_ws/install/dev_opencv_py/lib/python3.10/site-packages/dev_opencv_py-0.0.0-py3.10.egg-info\n'}
+[0.316361] (dev_opencv_py) StdoutLine: {'line': b'running install_scripts\n'}
+[0.324938] (dev_opencv_py) StdoutLine: {'line': b'Installing cam_pub script to /home/devuser/cam_ws/install/dev_opencv_py/lib/dev_opencv_py\n'}
+[0.324995] (dev_opencv_py) StdoutLine: {'line': b'Installing cam_sub script to /home/devuser/cam_ws/install/dev_opencv_py/lib/dev_opencv_py\n'}
+[0.325111] (dev_opencv_py) StdoutLine: {'line': b"writing list of installed files to '/home/devuser/cam_ws/build/dev_opencv_py/install.log'\n"}
+[0.333360] (dev_opencv_py) CommandEnded: {'returncode': 0}
+[0.337276] (dev_opencv_py) JobEnded: {'identifier': 'dev_opencv_py', 'rc': 0}
+[0.337614] (-) EventReactorShutdown: {}
