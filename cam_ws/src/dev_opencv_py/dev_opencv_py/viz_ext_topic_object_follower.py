@@ -58,8 +58,8 @@ class ColorDetectorNode(Node):
         self.corner_points = {
             'top_left':     {'pixel': (410, 150), 'xyz': (0.2, -0.15, 0.2)},
             'top_right':    {'pixel': (115, 150), 'xyz': (0.2,  0.15, 0.2)},
-            'bottom_left':  {'pixel': (410, 375), 'xyz': (0.2, -0.15, -0.05)},
-            'bottom_right': {'pixel': (115, 375), 'xyz': (0.13, 0.15, -0.16)}
+            'bottom_left':  {'pixel': (410, 375), 'xyz': (0.2, -0.15, -0.2)},
+            'bottom_right': {'pixel': (115, 375), 'xyz': (0.2, 0.15, -0.2)}
         }
 
         # Extract corners for easier reference
