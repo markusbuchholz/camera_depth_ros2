@@ -16,6 +16,9 @@ Upload the checkpoints from [here](https://drive.google.com/drive/folders/1vvFFm
 
 Run first camera test.
 
+## Run
+
+1.
 ```bash
 # Run publisher
 cd cam_ws/src/dev_opencv_py/dev_opencv_py 
@@ -23,7 +26,7 @@ cd cam_ws/src/dev_opencv_py/dev_opencv_py
 python3 python3 test_cam.py
 ```
 
-## Run
+2.
 
 ```bash
 # Run publisher
@@ -32,6 +35,8 @@ cd cam_ws/src/dev_opencv_py/dev_opencv_py
 python3 python3 cam_pub.py
 ```
 
+3.
+
 ```bash
 # Run subscriber normal 2D
 cd cam_ws/src/dev_opencv_py/dev_opencv_py 
@@ -39,12 +44,25 @@ cd cam_ws/src/dev_opencv_py/dev_opencv_py
 python3 viz_ext_topic_object_follower
 ```
 
+4.
 
 ```bash
 # Run depth
 cd src/Depth-Anything
 
+#visual servoing
 python3 ros2_run_local_camera_depth.py
+
+```
+
+5.
+
+```bash
+# Run depth
+cd src/Depth-Anything
+
+#visual servoing and obstacle
+python3 ros2_run_local_camera_depth_for_obs_and_obj.py
 
 ```
 
