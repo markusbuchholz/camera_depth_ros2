@@ -71,9 +71,15 @@ class DepthRedWhiteMappingNode(Node):
         self.min_contour_area_red = 1000  # minimum contour area for red
 
         # White color range in HSV (approx). Adjust for your environment.
-        self.white_lower = np.array([0,   0,   200])  # near-white
-        self.white_upper = np.array([180, 30,  255])
-        self.min_contour_area_white = 1500
+        #self.white_lower = np.array([0,   0,   200])  # near-white
+        #self.white_upper = np.array([180, 30,  255])
+        #self.min_contour_area_white = 1500
+
+        #for blue plate
+        self.white_lower = np.array([80, 30, 80])  # Lower bound for yellowish tones
+        self.white_upper = np.array([130, 255, 255])  # Upper bound for bright yellow
+        self.min_contour_area_white = 2000
+
 
         # -------------------------------------------------------------
         # 4. Depth scale factor (for color-map visualization)
