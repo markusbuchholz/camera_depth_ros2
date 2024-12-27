@@ -19,6 +19,7 @@ Run first camera test.
 ## Run
 
 1.
+
 ```bash
 # Run publisher
 cd cam_ws/src/dev_opencv_py/dev_opencv_py 
@@ -29,13 +30,23 @@ python3 python3 test_cam.py
 2.
 
 ```bash
+# Run HSV color checker
+cd cam_ws/src/dev_opencv_py/dev_opencv_py 
+
+python3 python3 get_values_from_screen.py
+```
+
+
+3.
+
+```bash
 # Run publisher
 cd cam_ws/src/dev_opencv_py/dev_opencv_py 
 
 python3 python3 cam_pub.py
 ```
 
-3.
+4.
 
 ```bash
 # Run subscriber normal 2D
@@ -44,7 +55,7 @@ cd cam_ws/src/dev_opencv_py/dev_opencv_py
 python3 viz_ext_topic_object_follower
 ```
 
-4.
+5.
 
 ```bash
 # Run depth
@@ -55,7 +66,7 @@ python3 ros2_run_local_camera_depth.py
 
 ```
 
-5.
+6.
 
 ```bash
 # Run depth

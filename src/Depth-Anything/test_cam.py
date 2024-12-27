@@ -1,34 +1,36 @@
 import cv2
 
 def main():
-    # Initialize the camera (0 is the default camera)
     cap = cv2.VideoCapture(0)
 
-    # Check if the camera opened successfully
     if not cap.isOpened():
-        print("Error: Cannot open camera")
+        print("Error: Cannot open the camera.")
         return
 
-    print("Camera opened successfully. Press 'q' to exit.")
+    cv2.namedWindow('Camera Feed')
+    show_pixel = False
 
     while True:
-        # Capture frame-by-frame
         ret, frame = cap.read()
-
-        # If frame is read correctly, ret is True
         if not ret:
-            print("Error: Can't receive frame (stream end?). Exiting ...")
+            print("Failed to grab frame.")
             break
 
-        # Display the resulting frame
-        cv2.imshow('Camera Test', frame)
+        if show_pixel:
+            height, width, _ = frame.shape
+            x, y = width // 2, height // 2
+            pixel = frame[y, x]
+            text = f"BGR: {pixel}"
+            cv2.putText(frame, text, (10, height - 10), cv2.FONT_HERSHEY_SIMPLEX, 
+                        0.7, (0, 255, 0), 2, cv2.LINE_AA)
 
-        # Press 'q' to exit the video window
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            print("Exiting camera test.")
+        cv2.imshow('Camera Feed', frame)
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord('q'):
             break
+        elif key == ord('p'):
+            show_pixel = not show_pixel  # Toggle display
 
-    # When everything done, release the capture and close windows
     cap.release()
     cv2.destroyAllWindows()
 

@@ -68,19 +68,18 @@ class DepthRedWhiteMappingNode(Node):
         self.red_upper1 = np.array([10,  255, 255])
         self.red_lower2 = np.array([170, 70,  50])
         self.red_upper2 = np.array([180, 255, 255])
-        self.min_contour_area_red = 1000  # min area for red
+        self.min_contour_area_red = 1000  # minimum contour area for red
 
+        # White color range in HSV (approx). Adjust for your environment.
+        #self.white_lower = np.array([0,   0,   200])  # near-white
+        #self.white_upper = np.array([180, 30,  255])
+        #self.min_contour_area_white = 1500
 
         #for blue plate
-        #self.white_lower = np.array([80, 30, 80])  # Lower bound for yellowish tones
-        #self.white_upper = np.array([130, 255, 255])  # Upper bound for bright yellow
-        #self.min_contour_area_white = 2000
-        
-        
-        # White color range in HSV (approx). Adjust for your environment.
-        self.white_lower = np.array([0,   15,   112])  # near-white
-        self.white_upper = np.array([179, 78,  193])
-        self.min_contour_area_white = 1500
+        self.white_lower = np.array([80, 30, 80])  # Lower bound for yellowish tones
+        self.white_upper = np.array([130, 255, 255])  # Upper bound for bright yellow
+        self.min_contour_area_white = 2000
+
 
         # -------------------------------------------------------------
         # 4. Depth scale factor (for color-map visualization)
@@ -88,43 +87,45 @@ class DepthRedWhiteMappingNode(Node):
         self.depth_scale_factor = 2.0
 
         # -------------------------------------------------------------
-        # 5. Corners for Red
-        #     X, Y from corners,  Z from Depth Map
+        # 5. Corners for Red (X,Y,Z all from corners)
         # -------------------------------------------------------------
+        # The user’s existing corners for red
         self.corner_points_red = {
-            'top_left':     {'pixel': (410, 150), 'xyz': (0.2,  -0.15)},  # omit Z
-            'top_right':    {'pixel': (115, 150), 'xyz': (0.2,   0.15)},
-            'bottom_left':  {'pixel': (410, 375), 'xyz': (0.2,  -0.15)},
-            'bottom_right': {'pixel': (115, 375), 'xyz': (0.2,   0.15)}
+            'top_left':     {'pixel': (410, 150), 'xyz': (0.2,  -0.15,  0.2)},
+            'top_right':    {'pixel': (115, 150), 'xyz': (0.2,   0.15,  0.2)},
+            'bottom_left':  {'pixel': (410, 375), 'xyz': (0.2,  -0.15, -0.2)},
+            'bottom_right': {'pixel': (115, 375), 'xyz': (0.2,   0.15, -0.2)}
         }
 
+        # Extract pixel corners (Red)
         self.x1r, self.y1r = self.corner_points_red['top_right']['pixel']     
         self.x2r, self.y2r = self.corner_points_red['bottom_left']['pixel']  
 
-        self.XR1, self.YR1 = self.corner_points_red['top_right']['xyz']
-        self.XR2, self.YR2 = self.corner_points_red['top_left']['xyz']
-        self.XR3, self.YR3 = self.corner_points_red['bottom_right']['xyz']
-        self.XR4, self.YR4 = self.corner_points_red['bottom_left']['xyz']
+        # Extract xyz corners (Red)
+        self.X1r, self.Y1r, self.Z1r = self.corner_points_red['top_right']['xyz']
+        self.X2r, self.Y2r, self.Z2r = self.corner_points_red['top_left']['xyz']
+        self.X3r, self.Y3r, self.Z3r = self.corner_points_red['bottom_right']['xyz']
+        self.X4r, self.Y4r, self.Z4r = self.corner_points_red['bottom_left']['xyz']
 
         # -------------------------------------------------------------
         # 5b. Corners for White
-        #     X, Y from corners; Z from Depth Map
+        #     X,Y from corners;  Z from Depth Map
         # -------------------------------------------------------------
         # Example corners for a 3m wide x 2.5m high region
         self.corner_points_white = {
-            'top_left':     {'pixel': (100, 100), 'xyz': (0.0,  1.25)},
-            'top_right':    {'pixel': (540, 100), 'xyz': (3.0,  1.25)},
-            'bottom_left':  {'pixel': (100, 380), 'xyz': (0.0, -1.25)},
-            'bottom_right': {'pixel': (540, 380), 'xyz': (3.0, -1.25)},
+            'top_left':     {'pixel': (100, 100), 'xyz': (0.0,  1.25, 0.0)},  
+            'top_right':    {'pixel': (540, 100), 'xyz': (3.0,  1.25, 0.0)},
+            'bottom_left':  {'pixel': (100, 380), 'xyz': (0.0, -1.25, 0.0)},
+            'bottom_right': {'pixel': (540, 380), 'xyz': (3.0, -1.25, 0.0)},
         }
 
         self.x1w, self.y1w = self.corner_points_white['top_right']['pixel']
         self.x2w, self.y2w = self.corner_points_white['bottom_left']['pixel']
 
-        self.XW1, self.YW1 = self.corner_points_white['top_right']['xyz']
-        self.XW2, self.YW2 = self.corner_points_white['top_left']['xyz']
-        self.XW3, self.YW3 = self.corner_points_white['bottom_right']['xyz']
-        self.XW4, self.YW4 = self.corner_points_white['bottom_left']['xyz']
+        self.X1w, self.Y1w, self.Z1w = self.corner_points_white['top_right']['xyz']
+        self.X2w, self.Y2w, self.Z2w = self.corner_points_white['top_left']['xyz']
+        self.X3w, self.Y3w, self.Z3w = self.corner_points_white['bottom_right']['xyz']
+        self.X4w, self.Y4w, self.Z4w = self.corner_points_white['bottom_left']['xyz']
 
         # -------------------------------------------------------------
         # 6. ROS Publishers/Subscribers
@@ -137,7 +138,7 @@ class DepthRedWhiteMappingNode(Node):
         # Subscriber for camera frames
         self.subscription = self.create_subscription(
             Image,
-            '/video_frames',   # your camera topic
+            '/video_frames',   # <-- your camera topic
             self.image_callback,
             10
         )
@@ -241,6 +242,7 @@ class DepthRedWhiteMappingNode(Node):
             self.get_logger().info("No red object detected (contour too small).")
             return
 
+        # Circle
         ((x_c, y_c), radius) = cv2.minEnclosingCircle(largest)
         M = cv2.moments(largest)
         if M["m00"] <= 0:
@@ -258,8 +260,8 @@ class DepthRedWhiteMappingNode(Node):
         cv2.circle(final_result, (cx, cy + caption_height),
                    5, (0, 0, 255), -1)
 
-        # Map (cx, cy) => [X, Y] from corners, Z from depth
-        mapped_xyz = self.map_to_square_red(cx, cy, depth_norm_01)
+        # Map (cx, cy) => X, Y, Z from the red corners
+        mapped_xyz = self.map_to_square_red(cx, cy)
         text = f"R: X={mapped_xyz[0]:.3f},Y={mapped_xyz[1]:.3f},Z={mapped_xyz[2]:.3f}"
         cv2.putText(final_result, text,
                     (cx + 10, cy + 10 + caption_height),
@@ -297,6 +299,7 @@ class DepthRedWhiteMappingNode(Node):
             self.get_logger().info("No obstacle detected (white contour too small).")
             return
 
+        # boundingRect
         x, y, w_box, h_box = cv2.boundingRect(largest)
         M = cv2.moments(largest)
         if M["m00"] <= 0:
@@ -317,7 +320,7 @@ class DepthRedWhiteMappingNode(Node):
         cv2.circle(final_result, (cx, cy + caption_height),
                    5, (255, 255, 255), -1)
 
-        # Map (cx, cy) => [X, Y] from corners, Z from depth
+        # Map (cx, cy) => X, Y from corners; Z from depth
         mapped_xyz = self.map_to_square_white(cx, cy, depth_norm_01)
         text = f"W: X={mapped_xyz[0]:.3f},Y={mapped_xyz[1]:.3f},Z={mapped_xyz[2]:.3f}"
         cv2.putText(final_result, text,
@@ -334,13 +337,11 @@ class DepthRedWhiteMappingNode(Node):
         self.white_publisher.publish(msg)
 
     # -----------------------------------------------------------------
-    # Red Mapping => X, Y from corners + Z from depth
+    # (A) Red Mapping => X, Y, Z from corners
     # -----------------------------------------------------------------
-    def map_to_square_red(self, px, py, depth_norm_01):
+    def map_to_square_red(self, px, py):
         """
-        For Red:
-          - X, Y from self.corner_points_red (bilinear interpolation).
-          - Z from depth_norm_01[py, px].
+        Original bilinear approach for Red (X, Y, Z from corner_points_red).
         """
         x1, y1 = self.x1r, self.y1r   # top_right
         x2, y2 = self.x2r, self.y2r   # bottom_left
@@ -350,61 +351,59 @@ class DepthRedWhiteMappingNode(Node):
         t = max(0.0, min(t, 1.0))
         u = max(0.0, min(u, 1.0))
 
-        # Bilinear for X
-        X = ((1 - t) * (1 - u) * self.XR1
-             + t * (1 - u) * self.XR2
-             + (1 - t) * u * self.XR3
-             + t * u * self.XR4)
+        # Corner XYZ
+        X = ((1 - t) * (1 - u) * self.X1r
+             + t * (1 - u) * self.X2r
+             + (1 - t) * u * self.X3r
+             + t * u * self.X4r)
 
-        # Bilinear for Y
-        Y = ((1 - t) * (1 - u) * self.YR1
-             + t * (1 - u) * self.YR2
-             + (1 - t) * u * self.YR3
-             + t * u * self.YR4)
+        # Y from your simplified approach
+        Y = 0.15 - 0.3 * t
 
-        # Or if you want the "Y = 0.15 - 0.3 * t" approach, do that. 
-        # But let's keep it fully bilinear for consistency.
-
-        # Depth from the map
-        z_val_01 = depth_norm_01[py, px].item()
-        # invert/scale as desired:
-        ###############
-        ###############
-        
-        Z = (1.0 - z_val_01) * 1.0
+        Z = ((1 - t) * (1 - u) * self.Z1r
+             + t * (1 - u) * self.Z2r
+             + (1 - t) * u * self.Z3r
+             + t * u * self.Z4r)
 
         return [X, Y, Z]
 
     # -----------------------------------------------------------------
-    # White Mapping => X, Y from corners + Z from depth
+    # (B) White Mapping => X, Y from corners + Z from depth
     # -----------------------------------------------------------------
     def map_to_square_white(self, px, py, depth_norm_01):
         """
         For White:
           - X, Y from corner_points_white (bilinear interpolation).
-          - Z from depth_norm_01 at (py, px).
+          - Z read directly from depth_norm_01 at (py, px).
         """
-        x1, y1 = self.x1w, self.y1w
-        x2, y2 = self.x2w, self.y2w
+        x1, y1 = self.x1w, self.y1w  # top_right
+        x2, y2 = self.x2w, self.y2w  # bottom_left
 
+        # 1) Bilinear for X,Y
         t = (px - x1) / (x2 - x1) if (x2 - x1) != 0 else 0
         u = (py - y1) / (y2 - y1) if (y2 - y1) != 0 else 0
         t = max(0.0, min(t, 1.0))
         u = max(0.0, min(u, 1.0))
 
-        X = ((1 - t) * (1 - u) * self.XW1
-             + t * (1 - u) * self.XW2
-             + (1 - t) * u * self.XW3
-             + t * u * self.XW4)
+        X = ((1 - t) * (1 - u) * self.X1w
+             + t * (1 - u) * self.X2w
+             + (1 - t) * u * self.X3w
+             + t * u * self.X4w)
 
-        Y = ((1 - t) * (1 - u) * self.YW1
-             + t * (1 - u) * self.YW2
-             + (1 - t) * u * self.YW3
-             + t * u * self.YW4)
+        Y = ((1 - t) * (1 - u) * self.Y1w
+             + t * (1 - u) * self.Y2w
+             + (1 - t) * u * self.Y3w
+             + t * u * self.Y4w)
 
+        # 2) Z from depth map
+        #   depth_norm_01 is in [0,1]. You can multiply or invert if desired.
         z_val_01 = depth_norm_01[py, px].item()
-        ##############
-        ##############
+        # For example, we can interpret 0 as far and 1 as near, or invert.
+        # We'll store it directly in Z, or you can do something else like invert:
+        #  Z = 1.0 - z_val_01
+        # For now, let's store it directly:
+        Z = z_val_01
+        #INVERT
         Z = (1.0 - z_val_01) * 1.0
 
         return [X, Y, Z]
