@@ -43,15 +43,11 @@ sudo ./run.sh
 
 ---
 
-## Run app
+Notes. <br>
 
+- The camera has to be connected to USB before you start Docker. <br>
+- Run first camera test. <br>
 
-## Note. <br>
-
-Run first camera test.
-
-
-1.
 
 ```bash
 # Run publisher
@@ -59,8 +55,11 @@ cd cam_ws/src/dev_opencv_py/dev_opencv_py
 
 python3 python3 test_cam.py
 ```
+---
 
-2.
+## Run app
+
+1.
 
 ```bash
 # Run HSV color checker
@@ -76,7 +75,7 @@ self.white_upper = np.array([179, 78,  193])
 
 ```
 
-3.
+2.
 
 ```bash
 # Run publisher
@@ -85,7 +84,7 @@ cd cam_ws/src/dev_opencv_py/dev_opencv_py
 python3 python3 cam_pub.py
 ```
 
-4.
+3.
 
 ```bash
 # Run subscriber normal 2D
@@ -94,7 +93,7 @@ cd cam_ws/src/dev_opencv_py/dev_opencv_py
 python3 viz_ext_topic_object_follower
 ```
 
-5.
+4.
 
 ```bash
 # Run depth
@@ -105,7 +104,7 @@ python3 ros2_run_local_camera_depth.py
 
 ```
 
-6.
+5.
 
 ```bash
 # Run depth
