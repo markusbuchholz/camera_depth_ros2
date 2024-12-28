@@ -1,3 +1,4 @@
+#Markus Buchholz
 FROM osrf/ros:humble-desktop AS base
 
 # Prevent interactive prompts during package installations
@@ -69,20 +70,15 @@ RUN /bin/bash -c "source /home/devuser/env/bin/activate && pip install --upgrade
 # Clone the Depth-Anything repository
 RUN git clone https://github.com/LiheYoung/Depth-Anything /home/devuser/Depth-Anything
 
-# **Optional: Verify that 'requirements.txt' exists**
 RUN ls -la /home/devuser/Depth-Anything/
 
-# Set the working directory to the cloned repository
 WORKDIR /home/devuser/Depth-Anything
 
-# Install Python dependencies
 RUN /bin/bash -c "source /home/devuser/env/bin/activate && pip install -r requirements.txt"
 
 # Source ROS 2 setup script for all future shell sessions for devuser
 RUN echo "source /opt/ros/humble/setup.bash" >> /home/devuser/.bashrc
 
-# Switch to 'devuser'
 USER devuser
 
-# Set the default command to bash
 CMD ["/bin/bash"]
