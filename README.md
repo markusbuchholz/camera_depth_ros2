@@ -17,9 +17,7 @@ Upload the checkpoints from [here](https://drive.google.com/drive/folders/1vvFFm
 ---
 Expected results (underwater environment)
 
-![image](https://github.com/user-attachments/assets/1a59a804-9184-4443-b032-504ad9e92691)
-
-
+![depth_obj_obs-ezgif](https://github.com/user-attachments/assets/56f09f8d-5081-43b2-9ddf-509a6b99f89b)
 
 
 ## Build
