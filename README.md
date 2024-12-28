@@ -115,7 +115,6 @@ cd src/Depth-Anything
 python3 ros2_run_local_camera_depth_for_obs_and_obj.py
 
 #for inspection
-
 ```/object_localizer```
 
 python3 ros2_object_3d_localizer.py
