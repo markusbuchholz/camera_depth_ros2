@@ -14,8 +14,13 @@ There are some changes to run model localy.<br>
 It is important to follow instruction and upload the model to ```checkpoints``` folder. <br>
 Upload the checkpoints from [here](https://drive.google.com/drive/folders/1vvFFm5wGWGHFtZthLAUwNdOGPQBPVdiF?usp=sharing) <br>
 
-
 ---
+Expected results (underwater environment)
+
+![image](https://github.com/user-attachments/assets/1a59a804-9184-4443-b032-504ad9e92691)
+
+
+
 
 ## Build
 
