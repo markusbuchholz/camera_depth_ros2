@@ -1,4 +1,4 @@
-# Markus Buchholz
+#Markus Buchholz
 FROM osrf/ros:humble-desktop AS base
 
 # Prevent interactive prompts during package installations
@@ -34,6 +34,8 @@ RUN apt-get update && apt-get upgrade -y && \
         libglu1-mesa-dev \
         ffmpeg \
         v4l-utils \
+        libopencv-dev \
+        python3-opencv \
         sudo \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -63,10 +65,7 @@ RUN echo "devuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 RUN python3 -m venv /home/devuser/env
 
 # Activate the virtual environment and install Python packages
-RUN /bin/bash -c "source /home/devuser/env/bin/activate && pip install --upgrade pip"
-
-# Install OpenCV with ArUco support
-RUN /bin/bash -c "source /home/devuser/env/bin/activate && pip install opencv-contrib-python"
+RUN /bin/bash -c "source /home/devuser/env/bin/activate && pip install --upgrade pip && pip install xformers"
 
 # Clone the Depth-Anything repository
 RUN git clone https://github.com/LiheYoung/Depth-Anything /home/devuser/Depth-Anything
