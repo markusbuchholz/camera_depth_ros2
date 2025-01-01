@@ -59,22 +59,36 @@ class DepthRedWhiteMappingNode(Node):
             NormalizeImage(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
             PrepareForNet(),
         ])
-        
-        
+
         # Red color range in HSV ORGINAL
         #self.red_lower1 = np.array([0,   70,  50])
         #self.red_upper1 = np.array([10,  255, 255])
         #self.red_lower2 = np.array([170, 70,  50])
         #self.red_upper2 = np.array([180, 255, 255])
+
+
+
         # -------------------------------------------------------------
         # 3. Color detection settings
         # -------------------------------------------------------------
         # Example: Overwriting ranges for "blue plate" or other color
+        
+        
+        
         self.red_lower1 = np.array([80, 30, 80])    # Lower bound
         self.red_upper1 = np.array([130, 255, 255]) # Upper bound
         self.red_lower2 = np.array([80, 30, 80])
         self.red_upper2 = np.array([130, 255, 255])
         self.min_contour_area_red = 1000  
+
+
+
+        # Red color range in HSV ORGINAL
+        #self.red_lower1 = np.array([0,   70,  50])
+        #self.red_upper1 = np.array([10,  255, 255])
+        #self.red_lower2 = np.array([170, 70,  50])
+        #self.red_upper2 = np.array([180, 255, 255])
+
 
         # White detection disabled here
         self.white_lower = np.array([0, 0, 0])
