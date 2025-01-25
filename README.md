@@ -120,12 +120,12 @@ python3 ros2_object_3d_localizer.py
 
 ## Run teleoperation app
 
-Expected results,
+Expected results, <br>
 ![teleoperation_low](https://github.com/user-attachments/assets/45a94458-1298-459e-9e23-740c43b644a9)
 
-It is required to run other Docker container to simulate the robot arm.
+It is required to run other Docker container to simulate the robot arm. <br>
 
-Clone here,
+Clone here,<br>
 
 ```bash
 git clone https://github.com/markusbuchholz/ros2_moveit_manipulators.git
