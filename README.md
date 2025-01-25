@@ -118,7 +118,7 @@ python3 ros2_object_3d_localizer.py
 
 ```
 
-## Run app teleoperation
+## Run teleoperation app
 
 It is required to run other Docker containter to simulate robot arm.
 
