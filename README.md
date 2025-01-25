@@ -118,6 +118,43 @@ python3 ros2_object_3d_localizer.py
 
 ```
 
+## Run app teleoperation
+
+It is required to run other Docker containter to simulate robot arm.
+
+Clone here,
+
+```bash
+git clone https://github.com/markusbuchholz/ros2_moveit_manipulators.git
+```
+
+Complete command pipeline,
+
+
+```bash
+#terminal 1 
+# from ros2_moveit_manipulators Docker container
+ros2 launch alpha_bringup_simulation planning_alpha5.launch.py
+
+#terminal 2 
+# from ros2_moveit_manipulators Docker container
+cd /root/colcon_ws/src/py_alpha_move/py_alpha_move
+python3 alpha_ik_controller_sim_const_axis_b.py
+
+
+#terminal 3
+#current Docker
+cd /home/devuser/cam_ws/src/dev_opencv_py/dev_opencv_py
+python3 cam_pub.py
+
+
+#terminal 4
+#current Docker
+cd /home/devuser/src/mediapipe
+python3 python3 ros2_xy_gripper_sim_display.py 
+
+
+```
 
 ## Links
 - [Depth-Anything](https://github.com/LiheYoung/Depth-Anything)
