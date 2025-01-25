@@ -80,6 +80,8 @@ RUN /bin/bash -c "source /home/devuser/env/bin/activate && pip install -r requir
 # Source ROS 2 setup script for all future shell sessions for devuser
 RUN echo "source /opt/ros/humble/setup.bash" >> /home/devuser/.bashrc
 
+
+RUN pip install mediapipe
 USER devuser
 
 CMD ["/bin/bash"]
