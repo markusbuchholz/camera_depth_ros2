@@ -79,7 +79,7 @@ self.white_upper = np.array([179, 78,  193])
 # Run publisher
 cd cam_ws/src/dev_opencv_py/dev_opencv_py 
 
-python3 python3 cam_pub.py
+python3 cam_pub.py
 ```
 
 3.
