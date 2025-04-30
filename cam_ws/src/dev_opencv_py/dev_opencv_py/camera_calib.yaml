@@ -1,0 +1,11 @@
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [800.0, 0.0, 320.0,
+         0.0, 800.0, 240.0,
+         0.0,   0.0,   1.0]
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.0, 0.0, 0.0, 0.0, 0.0]
+marker_length_m: 0.05
