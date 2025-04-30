@@ -3,7 +3,8 @@
 import cv2
 import cv2.aruco as aruco
 
-def generateArucoMarker(marker_id, marker_size=200, dictionary=aruco.DICT_4X4_250):
+#def generateArucoMarker(marker_id, marker_size=200, dictionary=aruco.DICT_4X4_250):
+def generateArucoMarker(marker_id, marker_size=200, dictionary=aruco.DICT_ARUCO_ORIGINAL):
     aruco_dict = aruco.getPredefinedDictionary(dictionary)
 
     marker = aruco.generateImageMarker(aruco_dict, marker_id, marker_size)
@@ -13,7 +14,7 @@ def generateArucoMarker(marker_id, marker_size=200, dictionary=aruco.DICT_4X4_25
     print(f"Marker {marker_id} saved as {file_name}")
 
 # Generate a marker with ID 1 as for OSL
-generateArucoMarker(marker_id=1)
+generateArucoMarker(marker_id=9)
 
 
 """

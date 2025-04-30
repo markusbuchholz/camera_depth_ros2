@@ -14,6 +14,7 @@ dictionaries = [
     aruco.DICT_5X5_50, aruco.DICT_5X5_100, aruco.DICT_5X5_250, aruco.DICT_5X5_1000,
     aruco.DICT_6X6_50, aruco.DICT_6X6_100, aruco.DICT_6X6_250, aruco.DICT_6X6_1000,
     aruco.DICT_7X7_50, aruco.DICT_7X7_100, aruco.DICT_7X7_250, aruco.DICT_7X7_1000,
+    aruco.DICT_ARUCO_ORIGINAL,
 ]
 
 for dictionary_id in dictionaries:
