@@ -159,5 +159,11 @@ python3 python3 ros2_xy_gripper_sim_display.py
 
 ```
 
+
+## RPI
+
+```bash
+ssh -t pi@192.168.2.80 "sudo docker exec -it camera_depth_ros2 /bin/bash"
+```
 ## Links
 - [Depth-Anything](https://github.com/LiheYoung/Depth-Anything)
