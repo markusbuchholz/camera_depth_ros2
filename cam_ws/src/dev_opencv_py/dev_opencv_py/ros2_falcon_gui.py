@@ -2,6 +2,11 @@
 
 # https://chev.me/arucogen/
 
+"""
+On Jetson run:
+python3 ros2_pub_intel.py --camera 6
+"""
+
 import os
 import yaml
 import numpy as np
