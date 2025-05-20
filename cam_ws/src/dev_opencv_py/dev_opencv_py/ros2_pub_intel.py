@@ -2,7 +2,7 @@
 
 """
 running on the bottle - Jetson
-python3 cam_pub_faster.py --camera 6    # or /dev/video6, etc.
+python3 cam_pub_faster.py --camera 6    
 """
 
 import sys, argparse
