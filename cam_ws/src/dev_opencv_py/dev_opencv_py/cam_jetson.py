@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-running on the host
+running on in the bottle - Jetson
 python3 cam_pub_faster.py --camera 0    
 python3 cam_pub_faster.py --camera 2    
 """
