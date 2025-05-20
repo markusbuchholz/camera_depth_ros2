@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 """
+running on the host
 python3 cam_pub_faster.py --camera 0    # first cam
 python3 cam_pub_faster.py --camera 2    # second cam
 """
