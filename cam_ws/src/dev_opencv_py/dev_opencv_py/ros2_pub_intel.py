@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 
 """
-running on the bottle - Jetson
-
-python3 cam_pub_faster.py --camera 6
+running on the bottle - Jetson:
+python3 ros2_pub_intel.py --camera 6
 
 on Host:
-
 python3 ros2_falcon_gui.py
 """
 
