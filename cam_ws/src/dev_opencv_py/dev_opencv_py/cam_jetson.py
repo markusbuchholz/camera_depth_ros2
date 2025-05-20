@@ -2,8 +2,8 @@
 
 """
 running on the host
-python3 cam_pub_faster.py --camera 0    # first cam
-python3 cam_pub_faster.py --camera 2    # second cam
+python3 cam_pub_faster.py --camera 0    
+python3 cam_pub_faster.py --camera 2    
 """
 
 import sys, argparse
