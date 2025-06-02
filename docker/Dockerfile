@@ -4,22 +4,29 @@ FROM osrf/ros:humble-desktop AS base
 # 1) Remove the old ROS 2 apt source (which has an expired key)
 RUN rm -f /etc/apt/sources.list.d/ros2-latest.list
 
-# --- NEW ADDITION: Force a specific, reliable mirror ---
-# Create a new sources.list with a known good mirror.
-# We'll use a widely available mirror. You can replace de.archive.ubuntu.com
-# with another one if you know a better regional one for you (e.g., us.archive.ubuntu.com, gb.archive.ubuntu.com)
+# --- NEW ADDITION: Force a specific, reliable mirror for Ubuntu jammy ---
 RUN echo "deb http://de.archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse" > /etc/apt/sources.list && \
     echo "deb http://de.archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse" >> /etc/apt/sources.list && \
     echo "deb http://de.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse" >> /etc/apt/sources.list && \
     echo "deb http://security.ubuntu.com/ubuntu jammy-security main restricted universe multiverse" >> /etc/apt/sources.list
+
+# 1.a) Re-add the official ROS 2 Humble apt repository (and its GPG key)
+#      This is required so that apt can find any ros-humble-* packages later.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        gnupg2 \
+        lsb-release \
+    && rm -rf /var/lib/apt/lists/* \
+    && curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
+         | apt-key add - \
+    && echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu jammy main" \
+         > /etc/apt/sources.list.d/ros2-latest.list
 
 # Prevent interactive prompts during package installations
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
     PATH="/home/devuser/env/bin:$PATH"
 
-# 2) Now that the ROS 2 repo is gone, 'apt-get update' only talks to Ubuntu mirrors.
-#    Install curl, gnupg2, lsb-release (in case you ever need to fetch any other keys later).
+# 2) Now that both Ubuntu and ROS 2 repos are in place, install curl, gnupg2, lsb-release, etc.
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         curl \
@@ -27,9 +34,7 @@ RUN apt-get update && \
         lsb-release && \
     rm -rf /var/lib/apt/lists/*
 
-# 3) Update & install all your essential packages as before.
-#    At this point, there is no longer a broken ROS 2 jar in the Sources, so
-#    'apt-get update' + 'apt-get install …' will succeed.
+# 3) Update & install all your essential packages
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y \
         build-essential \
@@ -90,11 +95,9 @@ RUN /bin/bash -c "source /home/devuser/env/bin/activate && pip install --upgrade
 # 10) Install OpenCV + ArUco into that venv
 RUN /bin/bash -c "source /home/devuser/env/bin/activate && pip install opencv-contrib-python"
 
-# 11) Clone your Depth-Anything repo
+# 11) Clone your Depth-Anything repo (if you still need it)
 RUN git clone https://github.com/LiheYoung/Depth-Anything /home/devuser/Depth-Anything
-
 RUN ls -la /home/devuser/Depth-Anything/
-
 WORKDIR /home/devuser/Depth-Anything
 
 # 12) Install Python requirements inside the venv
@@ -106,6 +109,13 @@ RUN echo "source /opt/ros/humble/setup.bash" >> /home/devuser/.bashrc
 # 14) Install MediaPipe in venv
 RUN /bin/bash -c "source /home/devuser/env/bin/activate && pip install mediapipe"
 
-USER devuser
+# 15) Install microstrain drivers now that ROS2 repo is back
+RUN apt-get update && \
+    apt-get install -y ros-humble-microstrain-inertial-driver
 
+# 16) Install the RQT plugin for microstrain
+RUN apt-get update && \
+    apt-get install -y ros-humble-microstrain-inertial-rqt
+
+USER devuser
 CMD ["/bin/bash"]
