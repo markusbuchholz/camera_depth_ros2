@@ -170,3 +170,4 @@ ssh -t pi@192.168.2.80 "sudo docker exec -it camera_depth_ros2 /bin/bash"
 - [microstrain_inertial_driver](https://wiki.ros.org/microstrain_inertial_driver)
 - [software/ros](https://www.microstrain.com/software/ros)
 - [GitHub microstrain](https://github.com/LORD-MicroStrain/microstrain_inertial/tree/ros2)
+- [params.yml](https://github.com/LORD-MicroStrain/microstrain_inertial_driver_common/blob/main/config/params.yml)
