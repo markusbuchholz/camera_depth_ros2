@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # https://chev.me/arucogen/
 
+# RUN ON HOST
+
 import os
 import yaml
 import numpy as np
