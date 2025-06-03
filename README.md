@@ -169,6 +169,11 @@ ssh -t pi@192.168.2.80 "sudo docker exec -it camera_depth_ros2 /bin/bash"
 ```bash
 sudo chmod a+rw /dev/ttyACM0
 ros2 launch microstrain_inertial_driver microstrain_launch.py
+devuser@nx:~/cam_ws/src/dev_opencv_py/dev_opencv_py$ python3 cam_jetson.py --camera 6
+
+on HOST
+devuser@markus:~/cam_ws/src/dev_opencv_py/dev_opencv_py$ python3 ros2_falcon_gui.py
+cam_ws/src/dev_opencv_py/dev_opencv_py$ ros2 topic echo /imu/data
 ```
 
 
