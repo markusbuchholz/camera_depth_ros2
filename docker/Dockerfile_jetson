@@ -1,0 +1,76 @@
+# ##############################################################################
+# ROS 2 Humble desktop + MicroStrain driver (binary) for Jetson
+# Works on JetPack 6 / L4T 36 (Ubuntu 22.04 Jammy, arm64)
+# ##############################################################################
+FROM dustynv/ros:humble-desktop-l4t-r36.2.0
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    QT_X11_NO_MITSHM=1 \
+    NVIDIA_VISIBLE_DEVICES=all \
+    NVIDIA_DRIVER_CAPABILITIES=graphics,utility,compute
+
+# ─────────── 1 • Disable old repo → install tools → add fresh key ────────────
+RUN set -eux; \
+    sed -i 's/^deb/# deb/g' /etc/apt/sources.list.d/ros2.list || true; \
+    apt-get update && \
+    apt-get install -y --no-install-recommends curl gnupg lsb-release; \
+    mkdir -p /usr/share/keyrings; \
+    curl -fsSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
+      -o /tmp/ros.asc && \
+    gpg --batch --yes --dearmor -o /usr/share/keyrings/ros-archive-keyring.gpg \
+        /tmp/ros.asc && rm /tmp/ros.asc; \
+    echo "deb [arch=$(dpkg --print-architecture) \
+              signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] \
+         http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" \
+      > /etc/apt/sources.list.d/ros2.list; \
+    rm -rf /var/lib/apt/lists/*
+
+# ─────────── 2 • Core dev packages (unchanged) ───────────────────────────────
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends \
+        build-essential cmake git wget unzip \
+        libssl-dev libffi-dev python3 python3-pip python3-venv \
+        pkg-config libgtk-3-dev libboost-all-dev patchelf \
+        mesa-utils libosmesa6-dev libglfw3-dev libglew-dev \
+        xorg-dev xvfb libgl1-mesa-dri libglu1-mesa-dev \
+        ffmpeg v4l-utils sudo && \
+    rm -rf /var/lib/apt/lists/*
+
+# ─────────── 3 • Extra OpenGL libs (unchanged) ───────────────────────────────
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        libglvnd0 libgl1 libglx0 libegl1 libxext6 libx11-6 && \
+    rm -rf /var/lib/apt/lists/*
+
+# ─────────── 4 • Non-root user with password-less sudo (unchanged) ──────────
+RUN useradd -m -G video,sudo devuser && \
+    echo "devuser ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/devuser
+
+USER devuser
+WORKDIR /home/devuser
+
+# ─────────── 5 • Python venv + OpenCV / MediaPipe (unchanged) ───────────────
+RUN python3 -m venv ~/env && \
+    ~/env/bin/pip install --upgrade pip && \
+    ~/env/bin/pip install opencv-contrib-python mediapipe
+
+ENV PATH="/home/devuser/env/bin:${PATH}"
+
+# ─────────── 6 • (Optional) Depth-Anything repo (unchanged) ──────────────────
+RUN git clone https://github.com/LiheYoung/Depth-Anything ~/Depth-Anything && \
+    ~/env/bin/pip install -r ~/Depth-Anything/requirements.txt
+
+# ─────────── 7 • Install MicroStrain binaries via apt (unchanged) ────────────
+USER root
+RUN apt-get update && \
+    apt-get install -y ros-humble-microstrain-inertial-driver \
+                       ros-humble-microstrain-inertial-rqt && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+USER devuser
+
+# ─────────── 8 • Source ROS every shell (unchanged) ──────────────────────────
+RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+
+CMD ["/bin/bash"]
+
