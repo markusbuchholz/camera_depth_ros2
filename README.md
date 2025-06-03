@@ -165,6 +165,13 @@ python3 python3 ros2_xy_gripper_sim_display.py
 ```bash
 ssh -t pi@192.168.2.80 "sudo docker exec -it camera_depth_ros2 /bin/bash"
 ```
+
+```bash
+sudo chmod a+rw /dev/ttyACM0
+ros2 launch microstrain_inertial_driver microstrain_launch.py
+```
+
+
 ## Links
 - [Depth-Anything](https://github.com/LiheYoung/Depth-Anything)
 - [microstrain_inertial_driver](https://wiki.ros.org/microstrain_inertial_driver)
