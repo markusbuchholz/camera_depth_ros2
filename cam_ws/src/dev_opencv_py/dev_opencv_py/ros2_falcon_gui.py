@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Markus Buchholz, 2025
 # https://chev.me/arucogen/
 
 # RUN ON HOST
