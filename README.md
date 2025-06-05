@@ -216,9 +216,8 @@ sudo chmod a+rw /dev/ttyACM0
 
 ros2 launch microstrain_inertial_driver microstrain_launch.py
 
-on HOST
-devuser@markus:~/cam_ws/src/dev_opencv_py/dev_opencv_py$ python3 ros2_falcon_gui.py
-cam_ws/src/dev_opencv_py/dev_opencv_py$ ros2 topic echo /imu/data
+# Check
+ros2 topic echo /imu/data
 ```
 
 
