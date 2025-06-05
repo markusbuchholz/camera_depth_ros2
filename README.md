@@ -174,6 +174,18 @@ ssh -t pi@192.168.2.80 "sudo docker exec -it camera_depth_ros2 /bin/bash"
 ssh -X nx@192.168.2.100
 ```
 
+## Run Docker 
+```bash
+cd falcon/camera_depth_ros2/docker
+sudo ./run.sh
+```
+
+### Connect to Docker from Host
+
+```bash
+sudo  ssh -t nx@192.168.2.100 "sudo docker exec -it camera_depth_ros2 bash
+```
+
 ```bash
 sudo chmod a+rw /dev/ttyACM0
 ros2 launch microstrain_inertial_driver microstrain_launch.py
