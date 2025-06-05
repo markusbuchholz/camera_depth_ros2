@@ -180,6 +180,18 @@ cd falcon/camera_depth_ros2/docker
 sudo ./run.sh
 ```
 
+### Run cammera
+
+```bash
+cd cam_ws
+
+source install/setup.bash
+
+cd cam_ws/src/dev_opencv_py/dev_opencv_py
+
+python3 cam_jetson.py --camera 6
+```
+
 ### Connect to Docker from Host
 
 ```bash
