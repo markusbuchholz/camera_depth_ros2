@@ -192,16 +192,29 @@ cd cam_ws/src/dev_opencv_py/dev_opencv_py
 python3 cam_jetson.py --camera 6
 ```
 
+### Run camera GUI on Host
+
+```bash
+cd cam_ws/src/dev_opencv_py/dev_opencv_py
+
+python3 ros2_falcon_gui.py
+```
+
 ### Connect to Docker from Host
 
 ```bash
 sudo  ssh -t nx@192.168.2.100 "sudo docker exec -it camera_depth_ros2 bash
 ```
+### Run Microstrain sensor
 
 ```bash
+cd cam_ws
+
+source install/setup.bash
+
 sudo chmod a+rw /dev/ttyACM0
+
 ros2 launch microstrain_inertial_driver microstrain_launch.py
-devuser@nx:~/cam_ws/src/dev_opencv_py/dev_opencv_py$ python3 cam_jetson.py --camera 6
 
 on HOST
 devuser@markus:~/cam_ws/src/dev_opencv_py/dev_opencv_py$ python3 ros2_falcon_gui.py
