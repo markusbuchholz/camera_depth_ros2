@@ -203,7 +203,7 @@ python3 ros2_falcon_gui.py
 ### Connect to Docker from Host
 
 ```bash
-sudo  ssh -t nx@192.168.2.100 "sudo docker exec -it camera_depth_ros2 bash
+sudo  ssh -t nx@192.168.2.100 "sudo docker exec -it camera_depth_ros2 bash"
 ```
 ### Run Microstrain sensor
 
