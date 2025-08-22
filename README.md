@@ -224,6 +224,7 @@ ros2 topic echo /imu/data
 ## Links
 - [Depth-Anything](https://github.com/LiheYoung/Depth-Anything)
 - [microstrain_inertial_driver](https://wiki.ros.org/microstrain_inertial_driver)
+- [microstrain_spec](https://www.hbkworld.com/en/products/transducers/inertial-sensors/attitude-and-heading-reference-systems--ahrs-/3dm-gx5-ahrs#!ref_microstrain.com)
 - [software/ros](https://www.microstrain.com/software/ros)
 - [GitHub microstrain](https://github.com/LORD-MicroStrain/microstrain_inertial/tree/ros2)
 - [params.yml](https://github.com/LORD-MicroStrain/microstrain_inertial_driver_common/blob/main/config/params.yml)
