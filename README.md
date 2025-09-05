@@ -168,7 +168,9 @@ ssh -t pi@192.168.2.80 "sudo docker exec -it camera_depth_ros2 /bin/bash"
 
 ---
 
-## Falcon
+## ROV Falcon: Jetson bottle
+
+Run ```ssh`` to Jetson:
 
 ```bash
 ssh -X nx@192.168.2.100
